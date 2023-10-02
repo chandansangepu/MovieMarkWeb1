@@ -1,0 +1,78 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active">Awaiting Movies</li>
+  </ol>
+</nav>
+
+<br *ngIf="!warning" />
+<div class="alert alert-warning" role="alert" *ngIf="warning">
+  Something went wrong details! Please give correct input or check.
+</div>
+<div *ngIf="feedback.length" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+
+<div class="primary-btn" style="float: right;margin-bottom: 15px;">
+  <button class="btn btn-danger" (click)="logout()">Logout</button>
+</div>
+
+<div class="container movie-scroll" *ngIf="isLogin">
+
+  <div class="event-schedule-area-two bg-color pad100">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active show" id="home" role="tabpanel">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="text-center" scope="col">Date</th>
+                      <th scope="col">Movie</th>
+                      <th scope="col">Details</th>
+                      <th class="text-center" scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="inner-box" *ngFor="let movie of movies; index as i">
+                      <th scope="row">
+                        <div class="event-date">
+                          <span>{{today.getDate()}}</span>
+                          <p>{{monthNames[today.getMonth()]}}</p>
+                        </div>
+                      </th>
+                      <td>
+                        <div class="event-img">
+                          <img src="{{movie.image}}" alt="" />
+                        </div>
+                      </td>
+                      <td>
+                        <div class="event-wrap">
+                          <h3><a href="#">{{movie.name}}</a></h3>
+                          <div class="meta">
+                            <div class="organizers">
+                              <a href="#">Director</a>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="primary-btn">
+                          <button class="btn btn-primary" (click)="watch(movie.id)">Watch</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /col end-->
+      </div>
+      <!-- /row end-->
+    </div>
+  </div>
+
+</div>

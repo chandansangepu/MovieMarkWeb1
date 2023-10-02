@@ -1,0 +1,59 @@
+<!-- https://getbootstrap.com/docs/5.1/examples/dashboard/ -->
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-4 col-lg-3 me-0 px-4" href="./">
+    <img src="assets/img/logo.png" width="42" style="margin-bottom: 10px; margin-right: 5px;">
+    <span>Movie Mark</span>
+  </a>
+
+  <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="watched"><i
+            class="fa-solid fa-square-check"></i>&nbsp;&nbsp;Watched</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="awaiting"><i
+            class="fa-solid fa-clock"></i>&nbsp;&nbsp;Awaiting</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="movies"><i
+            class="fa-solid fa-film"></i>&nbsp;&nbsp;Movies</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    </ul>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-3 body-top1" style="background-image: url(assets/img/logo1.jpg); opacity: 0.2;"></div>
+
+    <div class="col-9 body-top2">
+      <div class="row body">
+        <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4">
+          <router-outlet></router-outlet>
+          <router-outlet name="aux"></router-outlet>
+        </main>
+      </div>
+      <div class="row footer">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="justify-content: center !important;">
+          <a class="navbar-brand-footer" href="#">
+            Movie Mark &copy; 2023
+          </a>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+</div>

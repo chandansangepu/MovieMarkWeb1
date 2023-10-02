@@ -1,0 +1,40 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+    <li class="breadcrumb-item active">Login</li>
+  </ol>
+</nav>
+
+<h2>Login Detail</h2>
+<div class="alert alert-warning" role="alert" *ngIf="warning">
+  Something went wrong details! Please give correct input or check.
+</div>
+<div *ngIf="feedback.length" class="alert alert-{{feedback.type}}">{{ feedback.message }}</div>
+
+<form *ngIf="login" #loginForm="ngForm" (ngSubmit)="loginFn()">
+  <div class="col-4 login">
+    <div class="row mb-3">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
+          <input type="text" class="form-control" [(ngModel)]="login.username" id="username" name="username"
+            placeholder="Username" required>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-text"><i class="fa-solid fa-key"></i></div>
+          <input type="password" class="form-control" [(ngModel)]="login.password" id="password" name="password"
+            placeholder="Password" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group mt-3" role="group">
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Login</button>
+      <button type="button" class="btn btn-secondary footerBtn" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+</form>
